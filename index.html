@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Privacy Policy · Frost Lock</title>
+<meta name="description" content="Frost Lock has no servers and no account. Your blocked apps, lock history, and Screen Time data never leave your iPhone." />
+<meta name="color-scheme" content="dark" />
+<meta name="robots" content="index, follow" />
+<style>
+  /* ── Frost palette (single source of truth: the app's FrostLockColor) ───── */
+  :root {
+    --canvas:      #0E1726;
+    --canvas-soft: #16223A;
+    --hairline:    #243047;
+    --primary:     #EAF2FF;
+    --on-primary:  #0E1726;
+    --body-strong: #C7D6EE;
+    --body:        #A9BBD8;
+    --mute:        #7F90AD;
+    --accent:      #7FB4FF;
+    --maxw: 46rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--body);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+                 system-ui, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* A whisper of frost on the rim — the one place accent appears as decoration,
+     and it never moves. Elevation everywhere else is surface + hairline only. */
+  .rim {
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(127,180,255,0.0) 12%,
+      rgba(127,180,255,0.55) 50%,
+      rgba(127,180,255,0.0) 88%,
+      transparent 100%);
+  }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 3rem;
+  }
+
+  /* ── Masthead ───────────────────────────────────────────────────────────── */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 2.2rem;
+  }
+  .brand svg { width: 26px; height: 26px; color: var(--primary); flex: none; }
+  .brand .name {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 600;
+  }
+
+  h1 {
+    color: var(--primary);
+    font-size: clamp(2.1rem, 6vw, 2.9rem);
+    line-height: 1.08;
+    letter-spacing: -0.022em;
+    font-weight: 600;
+    margin: 0 0 1rem;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2.6rem;
+  }
+  .updated {
+    font-size: 0.86rem;
+    color: var(--mute);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Language toggle ──────────────────────────────────────────────────────── */
+  .langs {
+    display: inline-flex;
+    gap: 3px;
+    padding: 3px;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    background: var(--canvas-soft);
+  }
+  .langs button {
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--body);
+    background: transparent;
+    border: 0;
+    padding: 0.34rem 0.8rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.18s ease, color 0.18s ease;
+  }
+  .langs button[aria-pressed="true"] {
+    background: var(--accent);
+    color: var(--on-primary);
+    font-weight: 600;
+  }
+  .langs button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* ── In-short callout ─────────────────────────────────────────────────────── */
+  .summary {
+    background: var(--canvas-soft);
+    border: 1px solid var(--hairline);
+    border-radius: 14px;
+    padding: 1.5rem 1.6rem 1.6rem;
+    margin: 0 0 3.2rem;
+  }
+  .summary .kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 0.9rem;
+  }
+  .summary ul { margin: 0; padding: 0; list-style: none; }
+  .summary li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin: 0.7rem 0;
+    color: var(--body-strong);
+    font-size: 0.97rem;
+  }
+  .summary li::before {
+    content: "";
+    position: absolute;
+    left: 0.15rem;
+    top: 0.72em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* ── Sections ─────────────────────────────────────────────────────────────── */
+  section { margin: 2.6rem 0; }
+  .num {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--mute);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  h2 {
+    color: var(--primary);
+    font-size: 1.32rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    margin: 0 0 0.85rem;
+  }
+  h3 {
+    color: var(--body-strong);
+    font-size: 1.0rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem;
+  }
+  p { margin: 0.85rem 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  ul.list { margin: 0.85rem 0; padding-left: 0; list-style: none; }
+  ul.list li {
+    position: relative;
+    padding-left: 1.3rem;
+    margin: 0.55rem 0;
+  }
+  ul.list li::before {
+    content: "";
+    position: absolute;
+    left: 0.1rem;
+    top: 0.72em;
+    width: 5px;
+    height: 1px;
+    background: var(--mute);
+  }
+
+  strong { color: var(--body-strong); font-weight: 600; }
+
+  /* The Screen Time clause is the heart of the promise — marked with a single
+     glacier edge (accent = frozen). The only emphasized section. */
+  .keystone {
+    border-left: 3px solid var(--accent);
+    padding-left: 1.3rem;
+    margin-left: -0.1rem;
+  }
+
+  /* ── Footer ───────────────────────────────────────────────────────────────── */
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--hairline);
+    color: var(--mute);
+    font-size: 0.86rem;
+  }
+  footer p { margin: 0.4rem 0; }
+
+  /* Only the active language renders. */
+  [data-lang] { display: none; }
+  [data-lang].active { display: block; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .langs button { transition: none; }
+  }
+
+  @media (max-width: 30rem) {
+    .wrap { padding-top: 3rem; }
+    body { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="rim"></div>
+<div class="wrap">
+
+  <div class="brand">
+    <svg viewBox="0 0 100 100" aria-hidden="true" fill="none"
+         stroke="currentColor" stroke-width="3.2" stroke-linecap="round">
+      <g>
+        <line x1="50" y1="50" x2="50" y2="10"/>
+        <path d="M50 19 L44 25 M50 19 L56 25"/>
+        <path d="M50 31 L45 36 M50 31 L55 36"/>
+      </g>
+      <g transform="rotate(60 50 50)">
+        <line x1="50" y1="50" x2="50" y2="10"/>
+        <path d="M50 19 L44 25 M50 19 L56 25"/>
+        <path d="M50 31 L45 36 M50 31 L55 36"/>
+      </g>
+      <g transform="rotate(120 50 50)">
+        <line x1="50" y1="50" x2="50" y2="10"/>
+        <path d="M50 19 L44 25 M50 19 L56 25"/>
+        <path d="M50 31 L45 36 M50 31 L55 36"/>
+      </g>
+      <g transform="rotate(180 50 50)">
+        <line x1="50" y1="50" x2="50" y2="10"/>
+        <path d="M50 19 L44 25 M50 19 L56 25"/>
+        <path d="M50 31 L45 36 M50 31 L55 36"/>
+      </g>
+      <g transform="rotate(240 50 50)">
+        <line x1="50" y1="50" x2="50" y2="10"/>
+        <path d="M50 19 L44 25 M50 19 L56 25"/>
+        <path d="M50 31 L45 36 M50 31 L55 36"/>
+      </g>
+      <g transform="rotate(300 50 50)">
+        <line x1="50" y1="50" x2="50" y2="10"/>
+        <path d="M50 19 L44 25 M50 19 L56 25"/>
+        <path d="M50 31 L45 36 M50 31 L55 36"/>
+      </g>
+    </svg>
+    <span class="name">Frost Lock</span>
+  </div>
+
+  <div data-lang="en" class="active">
+    <h1>Privacy Policy</h1>
+    <div class="meta">
+      <span class="updated">Last updated · June 15, 2026</span>
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-set="en" aria-pressed="true">English</button>
+        <button type="button" data-set="ko" aria-pressed="false">한국어</button>
+        <button type="button" data-set="ja" aria-pressed="false">日本語</button>
+      </div>
+    </div>
+
+    <section>
+      <span class="num">01</span>
+      <h2>Entity</h2>
+      <p>This document is the privacy policy for <strong>Frost Lock</strong> (“the app”, “we”, “us”), an iOS application designed to help you lock yourself out of selected apps for a specified duration. Frost Lock does not operate any separate servers. All data is stored exclusively on your device, and we have no access to your data.</p>
+    </section>
+
+    <section>
+      <span class="num">02</span>
+      <h2>Servers</h2>
+      <p>Frost Lock has no external servers. There is no sign-up process, and no account is required to use the app. Because there is no backend infrastructure, there is simply no place for us to collect, store, or hold your personal information. Everything the app needs to operate is generated locally on your device and remains strictly within it.</p>
+    </section>
+
+    <section>
+      <span class="num">03</span>
+      <h2>Screen Time (Apple Family Controls)</h2>
+      <p>Frost Lock is built using Apple's Screen Time APIs (specifically Family Controls, Managed Settings, and Device Activity) and operates strictly in <strong>individual</strong> mode. It manages only your own device and never interacts with a child's device or anyone else's.</p>
+      <div class="keystone">
+        <p>What this means for your privacy:</p>
+        <ul class="list">
+          <li>When you choose which apps to block, iOS provides the app with opaque <strong>tokens</strong>. These tokens are completely unreadable by humans, meaning the app cannot see the names, icons, or contents of your chosen apps; only the system can resolve and render them back on your screen.</li>
+          <li>Your usage statistics (which apps were used, for how long, device pickups, and notification counts) are displayed to you inside a sealed Apple component called a <strong>Device Activity Report</strong>. This data is isolated by iOS, so Frost Lock displays it like a framed picture but <strong>cannot read the numbers, copy them, or transmit them anywhere</strong>.</li>
+          <li>All Screen Time information <strong>remains securely on your iPhone</strong>. It is never uploaded, never shared, and completely invisible to us.</li>
+        </ul>
+      </div>
+      <p>Apple's own handling of Screen Time data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</p>
+    </section>
+
+    <section>
+      <span class="num">04</span>
+      <h2>Information Stored on Device</h2>
+      <p>To perform its intended functions, Frost Lock saves the following data locally, inside a private app-group container on your iPhone, and nowhere else:</p>
+      <ul class="list">
+        <li>The selection of apps, categories, and websites you chose to block (stored as the opaque tokens described above).</li>
+        <li>Your lock and routine history (when locks started and ended). This is kept for up to <strong>31 days</strong> to populate the History tab and is then automatically deleted.</li>
+        <li>Your routines (schedules), durations, and configuration preferences (such as the Deep Freeze setting and your last-used selections).</li>
+        <li>A simple aggregate count of how many times you opened a blocked app while it was locked.</li>
+      </ul>
+      <p>None of this data ever leaves your device, and deleting the app erases all of it permanently.</p>
+    </section>
+
+    <section>
+      <span class="num">05</span>
+      <h2>Information Not Collected</h2>
+      <p>We believe in absolute data privacy. Accordingly, the app enforces the following standards:</p>
+      <ul class="list">
+        <li>We do not run any proprietary analytics or tracking SDKs.</li>
+        <li>We do not build advertising or behavioral profiles about our users.</li>
+        <li>We do not sell or share any data, as we have no data to sell.</li>
+        <li>We do not require, request, or store any account information, emails, names, or contact details to use the app.</li>
+      </ul>
+    </section>
+
+    <section>
+      <span class="num">06</span>
+      <h2>Advertising</h2>
+      <p>Frost Lock is free to use and supported by advertisements. Ads appear in <strong>one place only</strong>, at the bottom of the History tab, and are served by <strong>Google AdMob</strong>. Advertisements will never appear during the active locking experience, during onboarding, or on the block screen itself.</p>
+      <p>To serve advertisements, Google's advertising SDK may collect and process certain data, such as your device's advertising identifier, IP address, and general device telemetry, in compliance with Google's policies. <strong>Frost Lock does not send your Screen Time statistics, your blocked-app choices, or your lock history to Google or to any advertiser</strong>, as these never leave your device.</p>
+      <h3>Your Consent and Choices</h3>
+      <ul class="list">
+        <li>Before any ad loads, we utilize Google's <strong>User Messaging Platform (UMP)</strong> to request the privacy consents required in your region. Where required by iOS policy, you will also see the <strong>App Tracking Transparency (ATT)</strong> prompt.</li>
+        <li>If you decline tracking or withhold consent, Google will serve <strong>non-personalized ads</strong> instead.</li>
+        <li>You can modify or withdraw your consent at any time: open the <strong>History</strong> tab and tap the privacy (raised hand) icon in the top corner (which appears wherever consent management is required) to reopen your preference options.</li>
+      </ul>
+      <p>Google's data practices are detailed in <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">“How Google uses information from sites or apps that use our services.”</a></p>
+    </section>
+
+    <section>
+      <span class="num">07</span>
+      <h2>Subscriptions (Frost Lock Plus)</h2>
+      <p>Frost Lock offers an optional paid subscription, <strong>Plus</strong>, which removes advertisements and unlocks the <strong>Insights</strong> section of the History tab. Purchases are processed entirely by <strong>Apple</strong> through the App Store using your Apple ID. We <strong>never receive or store your payment details, card numbers, or Apple ID credentials</strong>. Apple provides the app with only an anonymous confirmation that an active subscription exists, which is kept locally on your device to unlock the feature. You can manage or cancel your subscription at any time via the App Store (Settings → Your Name → Subscriptions). Apple's transaction handling is covered by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</p>
+    </section>
+
+    <section>
+      <span class="num">08</span>
+      <h2>Children's Privacy</h2>
+      <p>Frost Lock is not directed at children under the age of 13 (or the equivalent minimum age in your jurisdiction). The app manages only your local device and requires no personal information to function. We do not knowingly collect data from anyone, including children.</p>
+    </section>
+
+    <section>
+      <span class="num">09</span>
+      <h2>Data Retention and Deletion</h2>
+      <p>Because the app maintains everything locally, you retain complete control over your information at all times:</p>
+      <ul class="list">
+        <li>On-device logs are pruned automatically; lock history and open-attempt counts are kept for roughly <strong>31 days</strong>, then automatically dropped.</li>
+        <li>To erase all data immediately, simply <strong>delete the app</strong> from your iPhone. This removes all stored selections, history, routines, and settings.</li>
+      </ul>
+      <p>There is nothing on our side to delete, because we hold no data.</p>
+    </section>
+
+    <section>
+      <span class="num">10</span>
+      <h2>Your Rights</h2>
+      <p>Depending on where you reside, such as under the <strong>GDPR</strong> in the EEA and UK, or the <strong>CCPA/CPRA</strong> in California, you have legal rights to access, correct, delete, and port your personal data, as well as object to certain processing. Because Frost Lock stores your data strictly on your device and we operate no servers, your data is already entirely in your hands: you can exercise these rights directly, and deleting the app wipes the data completely. For the limited advertising data handled by Google, you can manage your consent preferences in-app (see <em>Advertising</em>) and exercise your rights through Google.</p>
+    </section>
+
+    <section>
+      <span class="num">11</span>
+      <h2>Security</h2>
+      <p>Your information remains securely confined within your device's application sandbox, fully protected by the built-in security architecture of iOS. Because we do not transmit telemetry to external servers, there is no centralized database that could be breached, compromised, or leaked.</p>
+    </section>
+
+    <section>
+      <span class="num">12</span>
+      <h2>International Users</h2>
+      <p>Frost Lock is available in English, Korean, and Japanese. Since your data remains localized on your iPhone, we do not engage in cross-border data transfers. Our advertising partner (Google) may process the limited advertising metadata described above in accordance with its own global policies and data center locations.</p>
+    </section>
+
+    <section>
+      <span class="num">13</span>
+      <h2>Changes to this Policy</h2>
+      <p>If we update the way the app handles information, we will revise this page and update the <strong>Last updated</strong> date at the top. Any material changes affecting data handling or advertising will be reflected here before they take effect.</p>
+    </section>
+
+    <section>
+      <span class="num">14</span>
+      <h2>Contact</h2>
+      <p>If you have any questions or concerns regarding this Privacy Policy or your personal privacy, please contact us via email at:<br>
+      <a href="mailto:ninemomo.public@gmail.com">ninemomo.public@gmail.com</a></p>
+    </section>
+
+    <footer>
+      <p>Frost Lock: Screen Time Control</p>
+      <p>© 2026 Ninemomo. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <div data-lang="ko">
+    <h1>개인정보 처리방침</h1>
+    <div class="meta">
+      <span class="updated">최종 업데이트 · 2026년 6월 15일</span>
+      <div class="langs" role="group" aria-label="언어">
+        <button type="button" data-set="en" aria-pressed="false">English</button>
+        <button type="button" data-set="ko" aria-pressed="true">한국어</button>
+        <button type="button" data-set="ja" aria-pressed="false">日本語</button>
+      </div>
+    </div>
+	
+    <section>
+      <span class="num">01</span>
+      <h2>주체</h2>
+      <p>이 문서는 사용자가 선택한 앱을 정해진 시간 동안 스스로 잠글 수 있게 해 주는 iOS 앱 <strong>Frost Lock</strong>(“본 앱”, “우리”)의 개인정보 처리방침입니다. Frost Lock은 별도의 서버를 운영하지 않습니다. 모든 데이터는 사용자의 기기에만 저장되며 우리는 사용자 데이터에 접근할 수 없습니다.</p>
+    </section>
+
+    <section>
+      <span class="num">02</span>
+      <h2>서버</h2>
+      <p>Frost Lock에는 자체 서버가 없습니다. 가입 및 로그인이 없습니다. 서버가 존재하지 않으므로 우리가 사용자의 정보를 수집하거나 보관할 곳 자체가 없습니다. 앱이 동작하는 데 필요한 모든 것은 사용자의 기기에서 만들어지고 내부에서만 사용됩니다.</p>
+    </section>
+
+    <section>
+      <span class="num">03</span>
+      <h2>스크린 타임 (Apple Family Controls)</h2>
+      <p>Frost Lock은 Apple의 스크린 타임 API(Family Controls, Managed Settings, Device Activity)를 <strong>개인(individual)</strong> 모드로 사용합니다. 오직 사용자 본인의 기기만 관리하며, 자녀나 타인의 기기지 다루지 않습니다.</p>
+      <div class="keystone">
+        <p>이것이 사용자 개인정보에 의미하는 바는 다음과 같습니다:</p>
+        <ul class="list">
+          <li>차단할 앱을 고르면 iOS가 앱에 불투명한 <strong>토큰</strong>을 건넵니다. 이 토큰은 사람이 읽을 수 없습니다. 앱은 사용자가 고른 앱의 이름·아이콘·내용을 볼 수 없으며, 오직 시스템만이 화면에 다시 표시해 줄 수 있습니다.</li>
+          <li>사용 통계(어떤 앱을, 얼마나, 집어 든 횟수, 알림 수)는 <strong>Device Activity Report</strong>라는 봉인된 Apple 구성요소 안에서만 사용자에게 표시됩니다. 이 데이터는 iOS에 의해 격리되어 있어, Frost Lock은 액자 속 그림처럼 보여 줄 뿐 <strong>그 숫자를 읽거나 복사하거나 어디로도 보낼 수 없습니다</strong>.</li>
+          <li>이 모든 스크린 타임 정보는 <strong>사용자의 iPhone 안에만 존재합니다</strong>. 어디로도 업로드되지 않고 공유되지 않으며 우리가 볼 수도 없습니다.</li>
+        </ul>
+      </div>
+      <p>Apple의 스크린 타임 데이터 처리는 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple 개인정보 처리방침</a>을 따릅니다.</p>
+    </section>
+
+    <section>
+      <span class="num">04</span>
+      <h2>수집하는 정보</h2>
+      <p>기기 내에 저장하는 데이터는 다음과 같습니다.</p>
+      <ul class="list">
+        <li>차단하기로 선택한 앱·카테고리·웹사이트.</li>
+        <li>잠금 및 루틴 기록(잠금이 시작·종료된 시점). 기록 탭에 보여 주기 위해 최대 <strong>31일간</strong> 보관한 뒤 자동으로 삭제됩니다.</li>
+        <li>루틴, 지속 시간, 그리고 하드 잠금 설정이나 마지막으로 사용한 선택 같은 환경설정.</li>
+        <li>잠긴 동안 차단된 앱을 연 횟수에 대한 단순 집계.</li>
+      </ul>
+      <p>이 중 어느 것도 기기를 벗어나지 않으며 앱을 삭제하면 모두 지워집니다.</p>
+    </section>
+	
+    <section>
+      <span class="num">05</span>
+      <h2>수집하지 않는 정보</h2>
+      <ul class="list">
+        <li>자체 분석이나 추적 SDK를 운영하지 않습니다.</li>
+        <li>사용자에 대한 광고용·행동 프로필을 만들지 않습니다.</li>
+        <li>데이터를 판매하거나 공유하지 않습니다. </li>
+        <li>앱 사용을 위해 어떤 계정·이메일·이름·연락처도 저장하지 않습니다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <span class="num">06</span>
+      <h2>광고</h2>
+      <p>Frost Lock은 무료이며 광고로 운영됩니다. 광고는 오직 <strong>기록 탭 하단</strong>에만 나타나며 <strong>Google AdMob</strong>이 제공합니다. 잠금 화면, 온보딩, 차단 화면에는 광고가 절대 나타나지 않습니다.</p>
+      <p>광고를 표시하기 위해 Google의 광고 SDK는 Google 정책에 따라 기기의 광고 식별자, IP 주소, 일반적인 기기 정보 등 일부 정보를 수집·처리할 수 있습니다. <strong>Frost Lock은 사용자의 스크린 타임 데이터, 차단한 앱 선택, 잠금 기록을 Google이나 어떤 광고주에게도 보내지 않습니다</strong></p>
+      <h3>동의와 선택</h3>
+      <ul class="list">
+        <li>광고가 로드되기 전에, 우리는 Google의 <strong>User Messaging Platform(UMP)</strong>을 통해 사용자의 지역에서 요구되는 동의를 요청합니다. Apple이 요구하는 경우 <strong>앱 추적 투명성(ATT)</strong> 안내도 함께 표시됩니다.</li>
+        <li>추적이나 동의를 거부하면, Google은 대신 <strong>비개인화 광고</strong>를 제공합니다.</li>
+        <li>언제든 동의를 변경하거나 철회할 수 있습니다. <strong>기록</strong> 탭을 열고 상단 모서리의 개인정보(손 모양) 아이콘 "동의 관리가 필요한 지역에서 표시됩니다"을 탭하면 선택지를 다시 열 수 있습니다.</li>
+      </ul>
+      <p>Google의 데이터 사용은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a> 및 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google 서비스를 사용하는 사이트나 앱에서 수집한 정보의 Google 사용 방식</a>에 설명되어 있습니다.</p>
+    </section>
+
+    <section>
+      <span class="num">07</span>
+      <h2>구독</h2>
+      <p>Frost Lock은 광고를 제거하고 기록 탭의 <strong>인사이트</strong> 섹션을 여는 선택형 유료 구독 <strong>Plus</strong>를 제공합니다. 결제는 사용자의 Apple ID를 통해 App Store에서 <strong>전적으로 Apple이</strong> 처리합니다. 우리는 <strong>사용자의 결제 정보, 카드 번호, Apple ID를 받지도 저장하지도 않습니다</strong>. Apple은 활성 구독이 존재한다는 익명의 확인만 앱에 전달하며, 이는 기능을 열기 위해 기기에 보관됩니다. 구독은 App Store(설정 → 사용자 이름 → 구독)에서 관리·해지할 수 있습니다. Apple의 결제 처리는 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple 개인정보 처리방침</a>의 적용을 받습니다.</p>
+    </section>
+
+    <section>
+      <span class="num">08</span>
+      <h2>아동</h2>
+      <p>Frost Lock은 만 13세 미만(또는 거주 국가의 해당 최소 연령) 아동을 대상으로 하지 않습니다. 본 앱은 사용자 본인의 기기를 관리하며 작동에 어떤 개인정보도 필요로 하지 않습니다. 우리는 아동을 포함해 누구로부터도 의도적으로 데이터를 수집하지 않습니다.</p>
+    </section>
+
+    <section>
+      <span class="num">09</span>
+      <h2>데이터 보관 및 삭제</h2>
+      <p>앱이 모든 것을 로컬에 보관하므로, 사용자는 언제나 통제권을 갖습니다.</p>
+      <ul class="list">
+        <li>기기 내 기록은 자동으로 정리됩니다. 잠금 기록과 열기 시도 횟수는 약 <strong>31일간</strong> 보관된 뒤 삭제됩니다.</li>
+        <li>모든 것을 즉시 지우려면 iPhone에서 <strong>앱을 삭제</strong>하세요. 저장된 선택, 기록, 루틴, 설정이 모두 제거됩니다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <span class="num">10</span>
+      <h2>사용자의 권리</h2>
+      <p>거주 지역에 따라 (예를 들어 EEA 및 영국의 <strong>GDPR</strong>, 캘리포니아의 <strong>CCPA/CPRA</strong> 등) 사용자는 개인정보에 대한 접근·정정·삭제·이전을 요청하고 특정 처리에 반대할 권리를 가질 수 있습니다. Frost Lock은 데이터를 사용자의 기기에만 보관하고 우리는 어떤 서버도 운영하지 않으므로, 사용자의 데이터는 이미 사용자의 손안에 있습니다. 따라서 이러한 권리를 직접 행사할 수 있으며 앱을 삭제하면 데이터도 삭제됩니다. Google이 처리하는 제한된 광고 데이터에 대해서는 앱 내에서 동의를 관리하고(<em>광고</em> 항목 참고) Google을 통해 권리를 행사할 수 있습니다.</p>
+    </section>
+
+    <section>
+      <span class="num">11</span>
+      <h2>보안</h2>
+      <p>사용자의 정보는 iOS에 내장된 보안으로 보호되는 기기의 앱 샌드박스 안에 존재합니다. 우리는 자체 서버로 아무것도 전송하지 않으므로 침해되거나 유출될 중앙 데이터베이스가 존재하지 않습니다.</p>
+    </section>
+
+    <section>
+      <span class="num">12</span>
+      <h2>국제 사용자</h2>
+      <p>Frost Lock은 영어, 한국어, 일본어로 제공됩니다. 데이터가 기기에 머물기 때문에 우리는 사용자의 정보를 국경을 넘어 이전하지 않습니다. 광고 제공자(Google)는 위에서 설명한 제한된 광고 데이터를 자체 정책과 데이터센터 위치에 따라 처리할 수 있습니다.</p>
+    </section>
+
+    <section>
+      <span class="num">13</span>
+      <h2>본 방침의 변경</h2>
+      <p>앱의 정보 처리 방식이 바뀌면 이 페이지를 갱신하고 상단의 <strong>최종 업데이트</strong> 날짜를 수정합니다. 광고나 데이터 처리에 영향을 주는 중요한 변경은 효력이 발생하기 전에 이곳에 반영됩니다.</p>
+    </section>
+
+    <section>
+      <span class="num">14</span>
+      <h2>문의</h2>
+      <p>개인정보 관련 문의사항이 있으시면 아래로 연락해 주세요.<br>
+      <a href="mailto:ninemomo.public@gmail.com">ninemomo.public@gmail.com</a></p>
+    </section>
+
+    <footer>
+      <p>Frost Lock: Screen Time Control</p>
+      <p>© 2026 Ninemomo. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <div data-lang="ja">
+    <h1>プライバシーポリシー</h1>
+    <div class="meta">
+      <span class="updated">最終更新 · 2026年6月15日</span>
+      <div class="langs" role="group" aria-label="言語">
+        <button type="button" data-set="en" aria-pressed="false">English</button>
+        <button type="button" data-set="ko" aria-pressed="false">한국어</button>
+        <button type="button" data-set="ja" aria-pressed="true">日本語</button>
+      </div>
+    </div>
+
+    <section>
+      <span class="num">01</span>
+      <h2>本ポリシーの対象について</h2>
+      <p>本プライバシーポリシー（以下「本ポリシー」）は、ユーザーが指定したアプリを一定時間ロックし、スマートフォンの使いすぎを防ぐiOSアプリ「<strong>Frost Lock</strong>」（以下「本アプリ」）における個人情報の取り扱いを説明するものです。Frost Lockは独自の外部サーバーを運営していません。すべてのデータはユーザーの端末内にのみ保存され、当方がユーザーのデータにアクセスすることはできません。</p>
+    </section>
+
+    <section>
+      <span class="num">02</span>
+      <h2>サーバーおよびアカウントの不保持</h2>
+      <p>本アプリは独自の外部サーバーを一切保有しておらず、アカウント登録やログインの必要もありません。バックエンドが存在しないため、当方がユーザーの情報を収集・保持・蓄積する場所そのものがありません。アプリの動作に必要なすべてのデータは、ユーザーの端末内（ローカル）でのみ生成され、端末内にとどまります。</p>
+    </section>
+
+    <section>
+      <span class="num">03</span>
+      <h2>スクリーンタイム（Apple Family Controls）</h2>
+      <p>本アプリは、AppleのスクリーンタイムAPI（<strong>Family Controls</strong>、<strong>Managed Settings</strong>、<strong>Device Activity</strong>）を「個人（individual）モード」で利用しています。これはユーザーご自身の端末のみを制御・管理するものであり、お子様や他人の端末を管理・操作することはありません。</p>
+      <div class="keystone">
+        <p>これがユーザーのプライバシーにおいて意味する内容は以下のとおりです。</p>
+        <ul class="list">
+          <li>制限するアプリを選択する際、iOSは本アプリに対して暗号化された不透明なトークンを渡します。このトークンは人間が判読できない形式（Opaque Token）であり、本アプリ側で選択されたアプリの名前、アイコン、コンテンツ内容を閲覧することはできません。これらを画面上に復元して表示できるのはiOSシステムのみです。</li>
+          <li>アプリの利用統計（対象アプリ、利用時間、端末の持ち上げ回数、通知数など）は、「<strong>Device Activity Report</strong>」と呼ばれるAppleの安全なコンポーネント内でのみユーザーに表示されます。このデータはiOSによって厳格に隔離（サンドボックス化）されているため、本アプリはそれを画面上に表示することはできても、その数値を読み取ること、コピーすること、あるいは外部へ送信することは一切できません。</li>
+          <li>これらのスクリーンタイムに関する情報は、すべてユーザーのiPhone内にのみ保持されます。外部へのアップロードや共有、当方による閲覧が発生することは一切ありません。</li>
+        </ul>
+      </div>
+      <p>Appleによるスクリーンタイムデータの取り扱いについては、<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Appleのプライバシーポリシー</a>をご確認ください。</p>
+    </section>
+
+    <section>
+      <span class="num">04</span>
+      <h2>端末内に保存される情報</h2>
+      <p>本アプリの機能を提供するため、以下のデータがiPhone内のプライベートなApp Groupコンテナ内にローカル保存されます。これらが外部に送信されることはありません。</p>
+      <ul class="list">
+        <li>制限対象として選択されたアプリ、カテゴリ、およびウェブサイト（上記で説明した判読不可能なトークン形式）。</li>
+        <li>ロックおよびルーチンの履歴（ロックの開始・終了時刻）。これらは「履歴」タブに表示するために最大<strong>31日間</strong>保持され、その後自動的に消去されます。</li>
+        <li>ルーチン（スケジュール）、制限時間、および環境設定（ディープフリーズ設定や最後に使用した選択肢など）。</li>
+        <li>ロック中に、制限されたアプリを開こうとした回数のシンプルな集計値。</li>
+      </ul>
+      <p>これらの情報は一切端末の外に出ることはなく、アプリを削除するとすべて完全に消去されます。</p>
+    </section>
+
+    <section>
+      <span class="num">05</span>
+      <h2>収集・取得しない情報</h2>
+      <ul class="list">
+        <li>当方独自の分析（アナリティクス）やトラッキング用のSDKは一切導入していません。</li>
+        <li>ユーザーに関する広告用プロファイルや行動履歴プロファイルを作成することはありません。</li>
+        <li>ユーザーのデータを販売または共有することはありません（そもそも保有しているデータがありません）。</li>
+        <li>本アプリを利用するために、アカウント、メールアドレス、氏名、連絡先などの個人情報の入力を求めることも、保存することもありません。</li>
+      </ul>
+    </section>
+
+    <section>
+      <span class="num">06</span>
+      <h2>広告配信について</h2>
+      <p>本アプリは無料でご利用いただけるアプリであり、広告収入によって運営されています。広告は<strong>「履歴」タブの下部（1箇所のみ）</strong>に表示され、<strong>Google AdMob</strong>を通じて配信されます。ロック実行中、オンボーディング画面、またはブロック画面自体に広告が表示されることはありません。</p>
+      <p>広告を表示するため、Googleの広告SDKは同社のポリシーに基づき、端末の広告識別子（IDFA）、IPアドレス、および一般的な端末情報などの一部のデータを収集・処理する場合があります。<strong>しかし、本アプリがユーザーのスクリーンタイムデータ、ブロックしたアプリの選択情報、ロック履歴などをGoogleや広告主に送信することは絶対にありません。</strong>これらのデータが端末外へ出ることはありません。</p>
+      <h3>ユーザーの同意と選択について</h3>
+      <ul class="list">
+        <li>広告が読み込まれる前に、当方はGoogleの<strong>User Messaging Platform（UMP）</strong>を使用し、ユーザーがお住まいの地域で法的に求められる同意を要請します。また、Appleの規定に基づき、<strong>App Tracking Transparency（ATT）</strong>による追跡許可のダイアログが表示される場合もあります。</li>
+        <li>トラッキングや同意を拒否された場合、Googleは代わりに<strong>パーソナライズされていない広告（非パーソナライズ広告）</strong>を配信します。</li>
+        <li>同意内容はいつでも変更または撤回できます。<strong>「履歴」</strong>タブを開き、画面右上にあるプライバシー（挙手）アイコン（同意管理が必要な地域でのみ表示されます）をタップすることで、設定画面を再度開くことができます。</li>
+      </ul>
+      <p>Googleによるデータの利用詳細については、<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googleのプライバシーポリシー</a>および<a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">「Googleのサービスを使用するサイトやアプリから収集した情報のGoogleによる使用」</a>をご確認ください。</p>
+    </section>
+
+    <section>
+      <span class="num">07</span>
+      <h2>サブスクリプション（Frost Lock Plus）</h2>
+      <p>本アプリでは、広告を非表示にし、「履歴」タブの「インサイト」セクションを開放する有料サブスクリプション「<strong>Plus</strong>」をオプションとして提供しています。購入手続きは、ユーザーのApple IDを使用してApp Storeを通じて行われ、すべてAppleによって処理されます。当方がユーザーの決済情報、クレジットカード番号、またはApple IDの情報を取得・保存することは一切ありません。Appleからは「有効なサブスクリプションが存在する」という匿名化された確認のみがアプリに通知され、プレミアム機能を開放するために端末内に保持されます。サブスクリプションの管理および解約は、いつでもApp Store（設定アプリ → ユーザー名 → サブスクリプション）から行えます。Appleによる購入の取り扱いは、<a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Appleのプライバシーポリシー</a>の対象となります。</p>
+    </section>
+
+    <section>
+      <span class="num">08</span>
+      <h2>お子様のプライバシーについて</h2>
+      <p>本アプリは、13歳未満（またはお住まいの国の法定最低年齢）のお子様を対象としたアプリではありません。本アプリはユーザーご自身のローカル端末のみを管理し、動作に個人情報を必要としません。当方がお子様を含め、誰からも故意にデータを収集することはありません。</p>
+    </section>
+
+    <section>
+      <span class="num">09</span>
+      <h2>データの保持および削除</h2>
+      <p>本アプリはすべてのデータをローカルに保持するため、ユーザーは常に自身のデータを完全にコントロールできます。</p>
+      <ul class="list">
+        <li>端末内の履歴は自動的に整理されます。ロック履歴や起動試行回数は約<strong>31日間</strong>保持された後、自動的に削除されます。</li>
+        <li>すべてのデータを即座に消去したい場合は、iPhoneから<strong>本アプリを削除（アンインストール）</strong>してください。これにより、保存された選択内容、履歴、ルーチン、設定のすべてが完全に削除されます。</li>
+      </ul>
+      <p>当方側には削除すべきデータは存在しません。何も保持していないためです。</p>
+    </section>
+
+    <section>
+      <span class="num">10</span>
+      <h2>ユーザーの権利</h2>
+      <p>ユーザーがお住まいの地域（例えば、EEAや英国の<strong>GDPR</strong>、カリフォルニア州の<strong>CCPA/CPRA</strong>など）によっては、個人データへのアクセス、訂正、削除、データポータビリティの権利、および特定の処理に対する異議申し立てなどの法的権利が認められている場合があります。本アプリはデータをユーザーの端末内にのみ保存し、サーバーを一切運営していないため、データはすでに完全にユーザー自身の手元にあります。したがって、これらの権利は端末の操作（アプリの削除など）を通じて直接行使いただけます。Googleが処理する限定的な広告データについては、アプリ内で同意設定を管理するか（<em>「広告配信について」</em>の項を参照）、Googleを通じて権利を行使できます</p>
+    </section>
+
+    <section>
+      <span class="num">11</span>
+      <h2>セキュリティ</h2>
+      <p>ユーザーの情報は、iOSに組み込まれたセキュリティ機能によって保護された端末のアプリサンドボックス内にとどまります。当方は独自のサーバーへ何も送信しないため、侵害や漏洩の対象となる中央データベースは存在しません。</p>
+    </section>
+
+    <section>
+      <span class="num">12</span>
+      <h2>国外のユーザーについて</h2>
+      <p>Frost Lockは英語、韓国語、日本語で提供されています。データは端末内にとどまるため、当方がユーザーの情報を国境を越えて移転（クロスボーダー移転）することはありません。広告プロバイダー（Google）は、上記の限定的な広告データを自社のポリシーおよびデータセンターの所在地に従って処理する場合があります。</p>
+    </section>
+
+    <section>
+      <span class="num">13</span>
+      <h2>本ポリシーの変更</h2>
+      <p>本アプリにおける情報の取り扱い方法を変更する場合、当方は本ページを更新し、上部の「最終更新」日を改訂します。広告やデータの処理に影響を与える重要な変更については、効力が発生する前に本ページに反映いたします。</p>
+    </section>
+
+    <section>
+      <span class="num">14</span>
+      <h2>お問い合わせ</h2>
+      <p>本ポリシーまたはプライバシーに関するご質問は、下記のメールアドレスまでお寄せください。<br>
+      <a href="mailto:ninemomo.public@gmail.com">ninemomo.public@gmail.com</a></p>
+    </section>
+
+    <footer>
+      <p>Frost Lock: Screen Time Control</p>
+      <p>© 2026 Ninemomo. All rights reserved.</p>
+    </footer>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var panels = document.querySelectorAll("[data-lang]");
+    function setLang(lang) {
+      panels.forEach(function (panel) {
+        panel.classList.toggle("active", panel.getAttribute("data-lang") === lang);
+      });
+      document.documentElement.lang = lang;
+      // Keep every visible toggle (one per panel) in sync.
+      document.querySelectorAll(".langs button").forEach(function (btn) {
+        btn.setAttribute("aria-pressed", btn.getAttribute("data-set") === lang ? "true" : "false");
+      });
+      try { history.replaceState(null, "", "#" + lang); } catch (e) {}
+    }
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest(".langs button");
+      if (!btn) return;
+      setLang(btn.getAttribute("data-set"));
+    });
+    // Honor a #ko / #ja deep link, else the browser/OS language, else English.
+    var initial = (location.hash || "").replace("#", "");
+    if (initial !== "ko" && initial !== "ja" && initial !== "en") {
+      var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+      initial = (nav === "ko" || nav === "ja") ? nav : "en";
+    }
+    setLang(initial);
+  })();
+</script>
+</body>
+</html>
