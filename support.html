@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support · Frost Lock</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #2563EB;
+      --bg: #080a0f;
+      --line: rgba(255,255,255,0.06);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: #f0f2f7;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 48px;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-logo {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f0f2f7;
+      text-decoration: none;
+    }
+    .nav-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 48px;
+      max-width: 860px;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--blue);
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: #ffffff;
+      margin-bottom: 48px;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+      margin-bottom: 48px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-desc {
+      font-size: 15px;
+      color: #5a6070;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    .contact-link {
+      font-size: 15px;
+      font-weight: 500;
+      color: #f0f2f7;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 12px 22px;
+      transition: border-color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .contact-link:hover {
+      border-color: var(--blue);
+      background: rgba(37,99,235,0.08);
+    }
+    .contact-link svg {
+      opacity: 0.4;
+    }
+
+    footer {
+      padding: 24px 48px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer span {
+      font-size: 12px;
+      color: #2a2e38;
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 600px) {
+      nav, main, footer { padding-left: 24px; padding-right: 24px; }
+      .contact-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="#">Frost Lock</a>
+    <div class="nav-dot"></div>
+  </nav>
+
+  <main>
+    <div class="label">Support</div>
+
+    <h1>We're here<br><em>to help.</em></h1>
+
+    <div class="divider"></div>
+
+    <div class="contact-row">
+      <p class="contact-desc">
+        Questions, feedback, or anything else —
+        drop us an email and we'll get back to you.
+      </p>
+      <a class="contact-link" href="mailto:ninemomo.public@gmail.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m2 7 10 7 10-7"/>
+        </svg>
+        ninemomo.public@gmail.com
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Ninemomo. All rights reserved.</span>
+    <span>Seoul, Korea</span>
+  </footer>
+
+</body>
+</html>
